@@ -1,0 +1,45 @@
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  // padding-left: 13%;
+  width: 100%;
+  padding-bottom: 5%; /* Adjusted padding for a cleaner look */
+  background-color: #73a9cd; /* Blue background */
+  height: auto;
+}
+
+.charts-container {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-right:50%;
+}
+
+.chart-box {
+  flex: 1;
+  padding: 20px;
+  max-width: 400px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px; /* Increased margin for better separation */
+  border-radius: 8px; /* Added border radius */
+  background-color: white; /* White background for charts */
+}
+
+.onlychart {
+  width: 100%; /* Adjusted width to utilize available space */
+  max-width: 800px; /* Set a maximum width for better responsiveness */
+  margin: 20px auto; /* Centered the charts */
+  display: flex;
+  justify-content: space-around;
+}
+
+.used-budget-form {
+  display: flex;
+  flex-wrap: wrap; /* Allowing form elements to wrap on smaller screens */
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+}

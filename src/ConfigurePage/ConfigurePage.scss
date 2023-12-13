@@ -1,0 +1,53 @@
+// ConfigurePage.scss
+.configure-page-container {
+  max-width: 800px;
+  margin: 0 auto;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .forms-container {
+    display: flex;
+    justify-content: space-between;
+    background-color:#33f9fd;
+
+    .allocation-form,
+    .deallocation-form {
+      width: 48%;
+      padding: 20px;
+      border: 1px solid #2ecc71; /* Green border */
+      border-radius: 8px;
+      background-color:#33f9fd;
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+
+        span {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        input,
+        select {
+          width: 100%;
+          padding: 8px;
+          margin-top: 5px;
+          border: 1px solid #3498db; /* Blue border */
+          border-radius: 4px;
+        }
+      }
+
+      button {
+        background-color: #e13a28; /* Red background */
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+  }
+}

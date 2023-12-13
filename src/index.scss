@@ -1,0 +1,166 @@
+/* index.scss */
+body {
+  font-size: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav.menu {
+  width: 100%;
+  background-color: #3498db;
+  height: 44px;
+  padding: 0 40px;
+}
+
+nav.menu ul,
+nav.menu ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+}
+
+nav.menu ul li a {
+  display: block;
+  padding: 0 20px;
+  line-height: 44px;
+  font-size: 1.4em;
+  text-decoration: none;
+  color: #ecf0f1;
+  margin: 0;
+}
+
+nav.menu ul li a:hover {
+  background-color: #2c3e50; /* Darker blue on hover */
+  color: #3498db; /* Lighter blue on hover */
+}
+
+header.hero {
+  height: 350px;
+  background-image: url('../public/bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #3498db;
+  background-position: center bottom;
+  padding-top: 40px;
+}
+
+header.hero h1,
+header.hero h2 {
+  text-align: center;
+  margin: 0;
+}
+
+header.hero h1 {
+  color: #ecf0f1;
+  font-size: 4.2em;
+  margin-bottom: 20px;
+}
+
+header.hero h2 {
+  color: #2c3e50;
+}
+
+.container {
+  padding: 40px;
+  width: 100%;
+}
+
+.page-area {
+  max-width: none;
+  width: 100%;
+}
+
+footer.bottom {
+  background-color: #2c3e50;
+  bottom: 0;
+  color: #ecf0f1;
+  text-align: center;
+  width: 100%;
+  position: fixed; /* Fixed positioning to keep it at the bottom */
+  padding: 10px 0; /* Adjust padding as needed */
+  z-index: 1000; /* Ensure it's above other elements */
+  height: 10%;
+}
+
+footer.bottom .center {
+  font-size: 18px;
+}
+
+footer.bottom .h-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+footer.bottom .h-card p {
+  margin: 5px;
+}
+
+footer.bottom a {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+footer.bottom a:hover {
+  text-decoration: underline;
+}
+
+.text-box {
+  display: inline-block;
+  width: 45%;
+  vertical-align: top;
+}
+
+a:focus,
+button:focus {
+  outline: 2px solid #3498db;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #3498db;
+}
+
+@media screen and (min-width: 768px) {
+  .container .text-box {
+    /* Add specific styles for larger screens if needed */
+  }
+}
+
+#myChart {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.graphs_container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 32px;
+}
+
+.budget-table {
+  margin: 20px;
+}
+
+.table {
+  width: 50%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ecf0f1;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #2c3e50;
+}
+
+.table-row:hover {
+  background-color: #34495e;
+}
