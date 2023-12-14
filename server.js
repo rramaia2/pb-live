@@ -17,12 +17,73 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
-  host: process.env.DB_HOST || '167.172.24.111',
-  user: process.env.DB_USER || 'sql5669596',
-  password: process.env.DB_PASSWORD || 'lW732M5MQA',
-  database: process.env.DB_DATABASE || 'sql5669596',
-  port: process.env.DB_PORT || '3306',
+  host: process.env.DB_HOST || 'pbudget-do-user-14604868-0.c.db.ondigitalocean.com',
+  user: process.env.DB_USER || 'doadmin',
+  password: process.env.DB_PASSWORD || 'AVNS_GiaCnjwTspx8JW6tTHG',
+  database: process.env.DB_DATABASE || 'defaultdb',
+  port: process.env.DB_PORT || '25060',
 });
+
+
+// Create tables if they don't exist
+const createTables = () => {
+  // Create 'users' table
+  db.query(`
+    CREATE TABLE IF NOT EXISTS users (
+      userid INT PRIMARY KEY AUTO_INCREMENT,
+      username VARCHAR(255) NOT NULL,
+      password VARCHAR(255) NOT NULL,
+      firstname VARCHAR(255),
+      lastname VARCHAR(255)
+    );
+  `, (err) => {
+    if (err) {
+      console.error('Error creating users table:', err);
+    } else {
+      console.log('Users table created or already exists');
+    }
+  });
+
+  // Create 'budgets' table
+  db.query(`
+    CREATE TABLE IF NOT EXISTS budgets (
+      budgetid INT PRIMARY KEY AUTO_INCREMENT,
+      category VARCHAR(255) NOT NULL,
+      allocated DECIMAL(10, 2),
+      used DECIMAL(10, 2),
+      month VARCHAR(255),
+      year INT,
+      userid INT,
+      FOREIGN KEY (userid) REFERENCES users(userid)
+    );
+  `, (err) => {
+    if (err) {
+      console.error('Error creating budgets table:', err);
+    } else {
+      console.log('Budgets table created or already exists');
+    }
+  });
+
+  // Create 'expenses' table
+  db.query(`
+    CREATE TABLE IF NOT EXISTS expenses (
+      expenseid INT PRIMARY KEY AUTO_INCREMENT,
+      category VARCHAR(255) NOT NULL,
+      amount DECIMAL(10, 2),
+      description TEXT,
+      date DATE,
+      userid INT,
+      FOREIGN KEY (userid) REFERENCES users(userid)
+    );
+  `, (err) => {
+    if (err) {
+      console.error('Error creating expenses table:', err);
+    } else {
+      console.log('Expenses table created or already exists');
+    }
+  });
+};
+
 
 db.connect((err) => {
   if (err) {
@@ -386,30 +447,27 @@ const jwtSecretKey = process.env.JWT_SECRET_KEY || '1260';
 
 
 app.get("/user/validateToken", (req, res) => { 
-	// Tokens are generally passed in the header of the request 
-	// Due to security reasons. 
+        // Tokens are generally passed in the header of the request 
+        // Due to security reasons. 
 
-	let tokenHeaderKey = process.env.TOKEN_HEADER_KEY || '1260'; 
-	const jwtSecretKey = process.env.JWT_SECRET_KEY || '1260';
+        let tokenHeaderKey = process.env.TOKEN_HEADER_KEY || '1260'; 
+        const jwtSecretKey = process.env.JWT_SECRET_KEY || '1260';
 
-	try { 
-		const token = req.header(tokenHeaderKey); 
+        try { 
+                const token = req.header(tokenHeaderKey); 
 
-		const verified = jwt.verify(token, jwtSecretKey); 
-		if(verified){ 
-			return res.send("Successfully Verified"); 
-		}else{ 
-			// Access Denied 
-			return res.status(401).send(error); 
-		} 
-	} catch (error) { 
-		// Access Denied 
-		return res.status(401).send(error); 
-	} 
+                const verified = jwt.verify(token, jwtSecretKey); 
+                if(verified){ 
+                        return res.send("Successfully Verified"); 
+                }else{ 
+                        // Access Denied 
+                        return res.status(401).send(error); 
+                } 
+        } catch (error) { 
+                // Access Denied 
+                return res.status(401).send(error); 
+        } 
 });
-
-
-
 
 
 
