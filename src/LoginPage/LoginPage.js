@@ -10,7 +10,7 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://167.172.24.111/api/login', {
+      const response = await fetch('https://167.172.24.111/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

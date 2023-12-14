@@ -2,7 +2,7 @@
   "name": "personal-budget-react",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "https://167.172.24.111:3001",
   "dependencies": {
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
